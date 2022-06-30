@@ -39,23 +39,8 @@ function createGalleryMarkup(items) {
 }
 
 
-galleryContainer.addEventListener("click", onGalleryImageClick);
-
-function onGalleryImageClick(event) {
-  event.preventDefault();
-
-  const orgURL = event.target.dataset.source;
-  const orgDescr = event.target.alt;
- 
-
-  if (!event.target.classList.contains("gallery__image")) {
-    return;
-  }
-
-  basicLightbox
-    .create(
-      `
-    <img src = ${orgURL} alt= ${orgDescr} width="800" height="600" /> `
-    )
-    .show();
-}
+new SimpleLightbox(".gallery a", {
+    captionsData: "alt",
+    captionPosition: "bottom",
+    captionDelay: 250,
+  });
