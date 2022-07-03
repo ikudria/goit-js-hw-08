@@ -7,7 +7,8 @@ const form = document.querySelector('.feedback-form');
 form.addEventListener('input', throttle(onFormInput, 500));
 form.addEventListener('submit', onFormSubmit);
 
-const dataForm = {};
+// const dataForm = {};
+let dataForm = localStorage.getItem(FEEDBACK_FORM) ?  JSON.parse(localStorage.getItem(FEEDBACK_FORM)) : {};
 
 function onFormInput(event) {
 
@@ -17,7 +18,12 @@ function onFormInput(event) {
     // console.log(target);
 
     
-    dataForm[elTargetName] = elTargetValue;
+    // dataForm[elTargetName] = elTargetValue;
+        dataForm = {
+        ...dataForm,
+        [elTargetName]: elTargetValue,
+    }
+
 
     // console.log(dataForm);
 
