@@ -18,7 +18,7 @@ function onFormInput(event) {
     // console.log(target);
 
     
-    // dataForm[elTargetName] = elTargetValue;
+  
         dataForm = {
         ...dataForm,
         [elTargetName]: elTargetValue,
